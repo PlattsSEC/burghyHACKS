@@ -26,7 +26,7 @@ SECRET_KEY = '=48)_%d2%*(voyai5rv&cua#&chx02g82sh$_!&z1&5=b3=0ns'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['burghyhacks.herokuapp.com']
+ALLOWED_HOSTS = ['burghyhacks.herokuapp.com', 'https://floating-island-22038.herokuapp.com/']
 
 
 # Application definition
