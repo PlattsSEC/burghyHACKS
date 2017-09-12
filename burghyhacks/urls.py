@@ -19,5 +19,6 @@ from burghyHACKS import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index )
+    url(r'^$', views.index ),
+    url(r'^signup/', views.userFormView.as_view())
 ]
