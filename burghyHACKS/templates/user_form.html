@@ -9,12 +9,19 @@
           <br><br>
             <form action="/signup/" method="post">
               {% csrf_token %}
+              {% for field in form %}
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ email }}">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <label for="{{field.name}}">{{ field.label }}</label>
+                    {{ field }}
+                    {% comment %}<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ email }}">{% endcomment %}
+                    {% if field.help_text %}
+                    <br>
+                      <small class="help-text" class="form-text text-muted">{{field.help_text}}</small>
+                    <br>
+                    {% endif %}                
                   </div>
-                  <div class="form-group">
+              {% endfor %}
+                  {% comment %}<div class="form-group">
                     <label>First name</label>
                     <input type="text" class="form-control" value="{{ first_name }}">
                   </div>
@@ -23,7 +30,7 @@
                     <input type="text" class="form-control" value="{{ last_name }}">
                   </div>
                   <div class="form-group">
-                    <label>Last name</label>
+                    <label>Username</label>
                     <input type="text" class="form-control" value="{{ username }}">
                     <small id="emailHelp" class="form-text text-muted">Pick something fancy. Like coolguy1616</small>
                   </div>
@@ -36,7 +43,7 @@
                       <input type="checkbox" class="form-check-input">
                           Check me out
                     </label>
-                  </div>
+                  </div>{% endcomment %}
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
